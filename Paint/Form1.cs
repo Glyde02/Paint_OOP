@@ -1,52 +1,85 @@
 ﻿using System;
 using System.Drawing;
-
+using System.Windows.Forms;
 
 namespace Paint
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+        public Bitmap bitmap;
+        public Graphics pic;
+
         public Form1()
         {
             InitializeComponent();
+
+            bitmap = new Bitmap(picBox1.Width, picBox1.Height);
+            pic = Graphics.FromImage(bitmap);
         }
 
-        private void picBox_Click(object sender, EventArgs e)
+
+
+        private void btnPenColor_Click(object sender, EventArgs e)
         {
-            Graphics pic = picBox1.CreateGraphics();
+            if (clrDlgPen.ShowDialog() == DialogResult.OK)
+            {
+                btnPenColor.BackColor = clrDlgPen.Color;
+            }
+        }
 
-            Pen recPen = new Pen(Color.Red, 2);
-            Rectangle rec = new Rectangle(10, 10, 80, 50);
-            pic.DrawRectangle(recPen, rec);
+        private void btnBrushColor_Click(object sender, EventArgs e)
+        {
+            if (clrDlgBrush.ShowDialog() == DialogResult.OK)
+            {
+                btnBrushColor.BackColor = clrDlgBrush.Color;
+            }
+        }
 
-            Pen EllipsePen = new Pen(Color.Blue, 8);
-            Rectangle EllipseRect = new Rectangle(150, 10, 80, 60);
-            pic.DrawEllipse(EllipsePen, EllipseRect);
+        private void btcRect_Click(object sender, EventArgs e)
+        {
+            Rect rectangle = new Rect();
+            SetAttribute(rectangle);
 
-            Pen CirclePen = new Pen(Color.Blue, 8);
-            CirclePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            Rectangle CircleRect = new Rectangle(150, 100, 80, 60);
-            pic.DrawEllipse(CirclePen, CircleRect);
+            //rectangle.DrawRect(pic, 10, 10, 50, 50);            
+            rectangle.DrawRect(pic, (int)UpDownX.Value, (int)UpDownY.Value, (int)UpDownWidth.Value,(int) UpDownHeight.Value);
+
+            picBox1.Image = bitmap;
+        }
+
+        private void btnCircle_Click(object sender, EventArgs e)
+        {
+            Circle circle = new Circle();
+            SetAttribute(circle);
+            //circle.DrawCircle(pic, 100, 100, 50, 50);
+            circle.DrawCircle(pic, (int)UpDownX.Value, (int)UpDownY.Value, (int)UpDownWidth.Value, (int)UpDownHeight.Value);
+
+            picBox1.Image = bitmap;
+        }
+
+        private void SetAttribute(Figure figure)
+        {
+            figure.SetPenColor(clrDlgPen.Color);
+            figure.SetBrushColor(clrDlgBrush.Color);
+            figure.SetPenWidth((int)penWidth.Value);
+        }
 
 
-            Point LinePT1 = new Point(300, 10);
-            Point LinePT2 = new Point(350, 150);
-            Pen LinePen = new Pen(Color.Green, 2);
-            pic.DrawLine(LinePen, LinePT1, LinePT2);
 
-            SolidBrush brushDots = new SolidBrush(Color.Magenta);
-            Point[] dots = {new Point(100,150), new Point(200, 250),
-                            new Point(100,350), new Point(150, 250) };
-            pic.FillPolygon(brushDots, dots);
+        //Изменение размера Bitmap при изменении размера окна
+        //проблема, когда происходит увеличение окна
+        private void Form1_SizeChanged(object sender, EventArgs e)       {
 
-            Pen curve = new Pen(Color.Coral, 4);
-            Pen lines = new Pen(Color.DeepPink, 4);
-            Point[] points = {new Point(500, 10), new Point(550, 110),
-                              new Point(680, 100), new Point(700, 400),
-                              new Point(500, 350)};
-            pic.DrawCurve(curve, points);
-            pic.DrawLines(lines, points);
 
+
+            //Bitmap buff = new Bitmap(picBox1.Width, picBox1.Height);
+            
+            //buff = bitmap.Clone(new Rectangle(0, 0, picBox1.Width, picBox1.Height), bitmap.PixelFormat);
+            //bitmap = (Bitmap)buff.Clone();
+            //buff.Dispose();
+            //bitmap.Dispose();
+            //bitmap = buff;
+            //picBox1.Image = bitmap;
+            //pic = Graphics.FromImage(bitmap);
 
         }
     }
