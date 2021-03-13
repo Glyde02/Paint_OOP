@@ -10,8 +10,9 @@ namespace Paint
         public Bitmap bitmap;
         public Graphics pic;
 
-        private List<Figure> listFigures;
+        private List<Figure> listFigures = new List<Figure>();
         private Figure currFigure;
+        private Figure lastFigure;
 
 
         public Form1()
@@ -21,7 +22,6 @@ namespace Paint
             bitmap = new Bitmap(picBox1.Width, picBox1.Height);
             pic = Graphics.FromImage(bitmap);
         }
-
 
 
         private void btnPenColor_Click(object sender, EventArgs e)
@@ -51,6 +51,7 @@ namespace Paint
             //picBox1.Image = bitmap;
 
             this.currFigure = new Rect();
+            this.lastFigure = this.currFigure;
 
         }
 
@@ -64,6 +65,7 @@ namespace Paint
             //picBox1.Image = bitmap;
 
             this.currFigure = new Circle();
+            this.lastFigure = this.currFigure;
         }
 
         private void SetAttribute(Figure figure)
@@ -94,6 +96,8 @@ namespace Paint
 
             if (e.Button == MouseButtons.Left)
             {
+                if (currFigure == null)
+                    currFigure = lastFigure.Clone();
                 SetAttribute(currFigure);
 
                 Point point = new Point(e.X, e.Y);
@@ -103,6 +107,9 @@ namespace Paint
             {
                 PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
                 this.currFigure.Draw(b);
+                listFigures.Add(currFigure);
+                currFigure = null;
+               
                 picBox1.Image = bitmap;
             }
 
@@ -111,7 +118,24 @@ namespace Paint
         private void picBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (this.currFigure != null)
+            {
                 this.currFigure.SetSize(e.Location);
+                pic.Clear(Color.White);
+                if (listFigures != null)
+                {
+                    foreach (Figure figure in listFigures)
+                    {
+                        PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
+                        figure.Draw(b);
+                    }
+                    
+                }
+
+                PaintEventArgs c = new PaintEventArgs(pic, new Rectangle());
+                currFigure.Draw(c);
+
+                picBox1.Image = bitmap;
+            }
             //picBox1_MouseUp(sender, e);
         }
 

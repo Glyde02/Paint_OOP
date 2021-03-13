@@ -27,13 +27,9 @@ namespace Paint
         }
 
 
-        public void DrawCircle(Graphics obj, int dotX, int dotY, int width, int height)
+        public override Figure Clone()
         {
-
-            
-
-           
+            return new Circle { };
         }
-
     }
 }

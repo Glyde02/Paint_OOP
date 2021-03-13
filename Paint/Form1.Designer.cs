@@ -90,7 +90,7 @@ namespace Paint
             this.picBox1.Location = new System.Drawing.Point(81, 1);
             this.picBox1.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(1006, 566);
+            this.picBox1.Size = new System.Drawing.Size(1120, 564);
             this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox1.TabIndex = 0;
             this.picBox1.TabStop = false;
@@ -106,7 +106,7 @@ namespace Paint
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1088, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1202, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -200,7 +200,7 @@ namespace Paint
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(79, 565);
+            this.panel1.Size = new System.Drawing.Size(79, 563);
             this.panel1.TabIndex = 3;
             // 
             // btnCircle
@@ -236,7 +236,7 @@ namespace Paint
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1088, 72);
+            this.panel2.Size = new System.Drawing.Size(1202, 72);
             this.panel2.TabIndex = 4;
             // 
             // UpDownHeight
@@ -438,7 +438,7 @@ namespace Paint
             this.panel3.Location = new System.Drawing.Point(0, 96);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(1088, 568);
+            this.panel3.Size = new System.Drawing.Size(1202, 566);
             this.panel3.TabIndex = 5;
             // 
             // btnCreate
@@ -466,7 +466,7 @@ namespace Paint
             this.panel4.Controls.Add(this.lblHeight);
             this.panel4.Controls.Add(this.UpDownY);
             this.panel4.Controls.Add(this.lblWidth);
-            this.panel4.Location = new System.Drawing.Point(643, -1);
+            this.panel4.Location = new System.Drawing.Point(757, -1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(444, 72);
             this.panel4.TabIndex = 21;
@@ -475,7 +475,7 @@ namespace Paint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 664);
+            this.ClientSize = new System.Drawing.Size(1202, 662);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);

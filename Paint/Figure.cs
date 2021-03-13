@@ -36,5 +36,8 @@ namespace Paint
         {
             this.penWidth = width;
         }
+
+        abstract public Figure Clone();
+       
     }
 }

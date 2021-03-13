@@ -41,6 +41,10 @@ namespace Paint
 
         }
 
+        public override Figure Clone()
+        {
+            return new Rect { };
+        }
         //public void DrawRect(Graphics obj, int dotX, int dotY, int width, int height)
         //{           
 
