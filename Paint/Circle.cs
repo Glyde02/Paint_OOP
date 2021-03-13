@@ -4,27 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Paint
 {
-    class Circle : Figure
+    class Circle : SimpleFigure
     {
+        public override void Draw(PaintEventArgs obj)
+        {
+
+            SolidBrush brush = new SolidBrush(this.brushColor);
+            Rectangle circleRect = new Rectangle(this.leftUp, new Size(this.width, this.height));
+
+            obj.Graphics.FillEllipse(brush, circleRect);
+
+            if (this.penWidth != 0)
+            {
+                Pen pen = new Pen(this.penColor, this.penWidth);
+                obj.Graphics.DrawEllipse(pen, circleRect);
+            }
+
+        }
+
 
         public void DrawCircle(Graphics obj, int dotX, int dotY, int width, int height)
         {
 
             
 
-            SolidBrush brush = new SolidBrush(brushColor);
-            Rectangle circleRect = new Rectangle(dotX, dotY, width, height);
-
-            obj.FillEllipse(brush, circleRect);
-
-            if (penWidth != 0)
-            {
-                Pen pen = new Pen(penColor, penWidth);
-                obj.DrawEllipse(pen, circleRect);
-            }
+           
         }
 
     }

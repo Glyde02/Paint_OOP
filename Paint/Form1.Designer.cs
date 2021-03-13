@@ -34,48 +34,50 @@ namespace Paint
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCircle = new System.Windows.Forms.Button();
             this.btcRect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.UpDownHeight = new System.Windows.Forms.NumericUpDown();
+            this.UpDownWidth = new System.Windows.Forms.NumericUpDown();
+            this.lblHeight = new System.Windows.Forms.Label();
+            this.lblWidth = new System.Windows.Forms.Label();
+            this.UpDownY = new System.Windows.Forms.NumericUpDown();
+            this.UpDownX = new System.Windows.Forms.NumericUpDown();
+            this.lblY = new System.Windows.Forms.Label();
+            this.lblX = new System.Windows.Forms.Label();
+            this.lblLeftUpDot = new System.Windows.Forms.Label();
+            this.btnBrushColor = new System.Windows.Forms.Button();
+            this.btnPenColor = new System.Windows.Forms.Button();
             this.penWidth = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPenWidth = new System.Windows.Forms.Label();
             this.clrDlgPen = new System.Windows.Forms.ColorDialog();
-            this.btnPenColor = new System.Windows.Forms.Button();
-            this.btnBrushColor = new System.Windows.Forms.Button();
             this.clrDlgBrush = new System.Windows.Forms.ColorDialog();
-            this.btnCircle = new System.Windows.Forms.Button();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblLeftUpDot = new System.Windows.Forms.Label();
-            this.lblX = new System.Windows.Forms.Label();
-            this.lblY = new System.Windows.Forms.Label();
-            this.UpDownX = new System.Windows.Forms.NumericUpDown();
-            this.UpDownY = new System.Windows.Forms.NumericUpDown();
-            this.lblWidth = new System.Windows.Forms.Label();
-            this.lblHeight = new System.Windows.Forms.Label();
-            this.UpDownWidth = new System.Windows.Forms.NumericUpDown();
-            this.UpDownHeight = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.penWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.penWidth)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBox1
@@ -92,6 +94,9 @@ namespace Paint
             this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox1.TabIndex = 0;
             this.picBox1.TabStop = false;
+            this.picBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseDown);
+            this.picBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseMove);
+            this.picBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseUp);
             // 
             // menuStrip1
             // 
@@ -119,14 +124,25 @@ namespace Paint
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "Save...";
+            // 
+            // nToolStripMenuItem
+            // 
+            this.nToolStripMenuItem.Name = "nToolStripMenuItem";
+            this.nToolStripMenuItem.Size = new System.Drawing.Size(109, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
             // 
@@ -137,6 +153,18 @@ namespace Paint
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Text = "Undo";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -146,6 +174,23 @@ namespace Paint
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // addFigureToolStripMenuItem
+            // 
+            this.addFigureToolStripMenuItem.Name = "addFigureToolStripMenuItem";
+            this.addFigureToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.addFigureToolStripMenuItem.Text = "Add figure";
+            // 
+            // aboutProgramToolStripMenuItem
+            // 
+            this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
+            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(153, 6);
+            // 
+            // aboutProgramToolStripMenuItem1
+            // 
+            this.aboutProgramToolStripMenuItem1.Name = "aboutProgramToolStripMenuItem1";
+            this.aboutProgramToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.aboutProgramToolStripMenuItem1.Text = "About program";
             // 
             // panel1
             // 
@@ -158,11 +203,21 @@ namespace Paint
             this.panel1.Size = new System.Drawing.Size(79, 565);
             this.panel1.TabIndex = 3;
             // 
+            // btnCircle
+            // 
+            this.btnCircle.Location = new System.Drawing.Point(4, 58);
+            this.btnCircle.Name = "btnCircle";
+            this.btnCircle.Size = new System.Drawing.Size(70, 40);
+            this.btnCircle.TabIndex = 1;
+            this.btnCircle.Text = "Circle";
+            this.btnCircle.UseVisualStyleBackColor = true;
+            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
+            // 
             // btcRect
             // 
             this.btcRect.Location = new System.Drawing.Point(4, 12);
             this.btcRect.Name = "btcRect";
-            this.btcRect.Size = new System.Drawing.Size(70, 23);
+            this.btcRect.Size = new System.Drawing.Size(70, 40);
             this.btcRect.TabIndex = 0;
             this.btcRect.Text = "Rectangle";
             this.btcRect.UseVisualStyleBackColor = true;
@@ -171,15 +226,7 @@ namespace Paint
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.UpDownHeight);
-            this.panel2.Controls.Add(this.UpDownWidth);
-            this.panel2.Controls.Add(this.lblHeight);
-            this.panel2.Controls.Add(this.lblWidth);
-            this.panel2.Controls.Add(this.UpDownY);
-            this.panel2.Controls.Add(this.UpDownX);
-            this.panel2.Controls.Add(this.lblY);
-            this.panel2.Controls.Add(this.lblX);
-            this.panel2.Controls.Add(this.lblLeftUpDot);
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.btnBrushColor);
             this.panel2.Controls.Add(this.btnPenColor);
             this.panel2.Controls.Add(this.penWidth);
@@ -191,6 +238,150 @@ namespace Paint
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1088, 72);
             this.panel2.TabIndex = 4;
+            // 
+            // UpDownHeight
+            // 
+            this.UpDownHeight.Location = new System.Drawing.Point(264, 36);
+            this.UpDownHeight.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.UpDownHeight.Name = "UpDownHeight";
+            this.UpDownHeight.Size = new System.Drawing.Size(68, 20);
+            this.UpDownHeight.TabIndex = 20;
+            this.UpDownHeight.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            // 
+            // UpDownWidth
+            // 
+            this.UpDownWidth.Location = new System.Drawing.Point(264, 9);
+            this.UpDownWidth.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.UpDownWidth.Name = "UpDownWidth";
+            this.UpDownWidth.Size = new System.Drawing.Size(68, 20);
+            this.UpDownWidth.TabIndex = 19;
+            this.UpDownWidth.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblHeight.Location = new System.Drawing.Point(212, 36);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(49, 17);
+            this.lblHeight.TabIndex = 18;
+            this.lblHeight.Text = "Height";
+            // 
+            // lblWidth
+            // 
+            this.lblWidth.AutoSize = true;
+            this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWidth.Location = new System.Drawing.Point(214, 12);
+            this.lblWidth.Name = "lblWidth";
+            this.lblWidth.Size = new System.Drawing.Size(44, 17);
+            this.lblWidth.TabIndex = 17;
+            this.lblWidth.Text = "Width";
+            // 
+            // UpDownY
+            // 
+            this.UpDownY.Location = new System.Drawing.Point(128, 37);
+            this.UpDownY.Maximum = new decimal(new int[] {
+            1080,
+            0,
+            0,
+            0});
+            this.UpDownY.Name = "UpDownY";
+            this.UpDownY.Size = new System.Drawing.Size(68, 20);
+            this.UpDownY.TabIndex = 16;
+            this.UpDownY.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
+            // UpDownX
+            // 
+            this.UpDownX.Location = new System.Drawing.Point(32, 36);
+            this.UpDownX.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.UpDownX.Name = "UpDownX";
+            this.UpDownX.Size = new System.Drawing.Size(68, 20);
+            this.UpDownX.TabIndex = 15;
+            this.UpDownX.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // lblY
+            // 
+            this.lblY.AutoSize = true;
+            this.lblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblY.Location = new System.Drawing.Point(110, 37);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(17, 17);
+            this.lblY.TabIndex = 14;
+            this.lblY.Text = "Y";
+            // 
+            // lblX
+            // 
+            this.lblX.AutoSize = true;
+            this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblX.Location = new System.Drawing.Point(12, 37);
+            this.lblX.Name = "lblX";
+            this.lblX.Size = new System.Drawing.Size(17, 17);
+            this.lblX.TabIndex = 13;
+            this.lblX.Text = "X";
+            // 
+            // lblLeftUpDot
+            // 
+            this.lblLeftUpDot.AutoSize = true;
+            this.lblLeftUpDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblLeftUpDot.Location = new System.Drawing.Point(74, 12);
+            this.lblLeftUpDot.Name = "lblLeftUpDot";
+            this.lblLeftUpDot.Size = new System.Drawing.Size(78, 17);
+            this.lblLeftUpDot.TabIndex = 12;
+            this.lblLeftUpDot.Text = "Left Up dot";
+            // 
+            // btnBrushColor
+            // 
+            this.btnBrushColor.BackColor = System.Drawing.Color.Black;
+            this.btnBrushColor.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnBrushColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrushColor.Location = new System.Drawing.Point(280, 34);
+            this.btnBrushColor.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBrushColor.Name = "btnBrushColor";
+            this.btnBrushColor.Size = new System.Drawing.Size(23, 23);
+            this.btnBrushColor.TabIndex = 11;
+            this.btnBrushColor.UseVisualStyleBackColor = false;
+            this.btnBrushColor.Click += new System.EventHandler(this.btnBrushColor_Click);
+            // 
+            // btnPenColor
+            // 
+            this.btnPenColor.BackColor = System.Drawing.Color.Red;
+            this.btnPenColor.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnPenColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPenColor.Location = new System.Drawing.Point(280, 8);
+            this.btnPenColor.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPenColor.Name = "btnPenColor";
+            this.btnPenColor.Size = new System.Drawing.Size(23, 23);
+            this.btnPenColor.TabIndex = 10;
+            this.btnPenColor.UseVisualStyleBackColor = false;
+            this.btnPenColor.Click += new System.EventHandler(this.btnPenColor_Click);
             // 
             // penWidth
             // 
@@ -238,200 +429,6 @@ namespace Paint
             // 
             this.clrDlgPen.Color = System.Drawing.Color.Red;
             // 
-            // btnPenColor
-            // 
-            this.btnPenColor.BackColor = System.Drawing.Color.Red;
-            this.btnPenColor.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnPenColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPenColor.Location = new System.Drawing.Point(280, 8);
-            this.btnPenColor.Margin = new System.Windows.Forms.Padding(0);
-            this.btnPenColor.Name = "btnPenColor";
-            this.btnPenColor.Size = new System.Drawing.Size(23, 23);
-            this.btnPenColor.TabIndex = 10;
-            this.btnPenColor.UseVisualStyleBackColor = false;
-            this.btnPenColor.Click += new System.EventHandler(this.btnPenColor_Click);
-            // 
-            // btnBrushColor
-            // 
-            this.btnBrushColor.BackColor = System.Drawing.Color.Black;
-            this.btnBrushColor.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnBrushColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrushColor.Location = new System.Drawing.Point(280, 34);
-            this.btnBrushColor.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBrushColor.Name = "btnBrushColor";
-            this.btnBrushColor.Size = new System.Drawing.Size(23, 23);
-            this.btnBrushColor.TabIndex = 11;
-            this.btnBrushColor.UseVisualStyleBackColor = false;
-            this.btnBrushColor.Click += new System.EventHandler(this.btnBrushColor_Click);
-            // 
-            // btnCircle
-            // 
-            this.btnCircle.Location = new System.Drawing.Point(4, 41);
-            this.btnCircle.Name = "btnCircle";
-            this.btnCircle.Size = new System.Drawing.Size(70, 23);
-            this.btnCircle.TabIndex = 1;
-            this.btnCircle.Text = "Circle";
-            this.btnCircle.UseVisualStyleBackColor = true;
-            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            // 
-            // addFigureToolStripMenuItem
-            // 
-            this.addFigureToolStripMenuItem.Name = "addFigureToolStripMenuItem";
-            this.addFigureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addFigureToolStripMenuItem.Text = "Add figure";
-            // 
-            // nToolStripMenuItem
-            // 
-            this.nToolStripMenuItem.Name = "nToolStripMenuItem";
-            this.nToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // aboutProgramToolStripMenuItem
-            // 
-            this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
-            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
-            // 
-            // aboutProgramToolStripMenuItem1
-            // 
-            this.aboutProgramToolStripMenuItem1.Name = "aboutProgramToolStripMenuItem1";
-            this.aboutProgramToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.aboutProgramToolStripMenuItem1.Text = "About program";
-            // 
-            // lblLeftUpDot
-            // 
-            this.lblLeftUpDot.AutoSize = true;
-            this.lblLeftUpDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLeftUpDot.Location = new System.Drawing.Point(500, 11);
-            this.lblLeftUpDot.Name = "lblLeftUpDot";
-            this.lblLeftUpDot.Size = new System.Drawing.Size(78, 17);
-            this.lblLeftUpDot.TabIndex = 12;
-            this.lblLeftUpDot.Text = "Left Up dot";
-            // 
-            // lblX
-            // 
-            this.lblX.AutoSize = true;
-            this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblX.Location = new System.Drawing.Point(438, 36);
-            this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(17, 17);
-            this.lblX.TabIndex = 13;
-            this.lblX.Text = "X";
-            // 
-            // lblY
-            // 
-            this.lblY.AutoSize = true;
-            this.lblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblY.Location = new System.Drawing.Point(536, 36);
-            this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(17, 17);
-            this.lblY.TabIndex = 14;
-            this.lblY.Text = "Y";
-            // 
-            // UpDownX
-            // 
-            this.UpDownX.Location = new System.Drawing.Point(458, 35);
-            this.UpDownX.Maximum = new decimal(new int[] {
-            1920,
-            0,
-            0,
-            0});
-            this.UpDownX.Name = "UpDownX";
-            this.UpDownX.Size = new System.Drawing.Size(68, 20);
-            this.UpDownX.TabIndex = 15;
-            this.UpDownX.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // UpDownY
-            // 
-            this.UpDownY.Location = new System.Drawing.Point(554, 36);
-            this.UpDownY.Maximum = new decimal(new int[] {
-            1080,
-            0,
-            0,
-            0});
-            this.UpDownY.Name = "UpDownY";
-            this.UpDownY.Size = new System.Drawing.Size(68, 20);
-            this.UpDownY.TabIndex = 16;
-            this.UpDownY.Value = new decimal(new int[] {
-            150,
-            0,
-            0,
-            0});
-            // 
-            // lblWidth
-            // 
-            this.lblWidth.AutoSize = true;
-            this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWidth.Location = new System.Drawing.Point(688, 11);
-            this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(44, 17);
-            this.lblWidth.TabIndex = 17;
-            this.lblWidth.Text = "Width";
-            // 
-            // lblHeight
-            // 
-            this.lblHeight.AutoSize = true;
-            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblHeight.Location = new System.Drawing.Point(686, 35);
-            this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(49, 17);
-            this.lblHeight.TabIndex = 18;
-            this.lblHeight.Text = "Height";
-            // 
-            // UpDownWidth
-            // 
-            this.UpDownWidth.Location = new System.Drawing.Point(738, 8);
-            this.UpDownWidth.Maximum = new decimal(new int[] {
-            1920,
-            0,
-            0,
-            0});
-            this.UpDownWidth.Name = "UpDownWidth";
-            this.UpDownWidth.Size = new System.Drawing.Size(68, 20);
-            this.UpDownWidth.TabIndex = 19;
-            this.UpDownWidth.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // UpDownHeight
-            // 
-            this.UpDownHeight.Location = new System.Drawing.Point(738, 35);
-            this.UpDownHeight.Maximum = new decimal(new int[] {
-            1920,
-            0,
-            0,
-            0});
-            this.UpDownHeight.Name = "UpDownHeight";
-            this.UpDownHeight.Size = new System.Drawing.Size(68, 20);
-            this.UpDownHeight.TabIndex = 20;
-            this.UpDownHeight.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -443,6 +440,36 @@ namespace Paint
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panel3.Size = new System.Drawing.Size(1088, 568);
             this.panel3.TabIndex = 5;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreate.Location = new System.Drawing.Point(359, 9);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 49);
+            this.btnCreate.TabIndex = 4;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.UpDownX);
+            this.panel4.Controls.Add(this.btnCreate);
+            this.panel4.Controls.Add(this.lblLeftUpDot);
+            this.panel4.Controls.Add(this.UpDownHeight);
+            this.panel4.Controls.Add(this.lblX);
+            this.panel4.Controls.Add(this.UpDownWidth);
+            this.panel4.Controls.Add(this.lblY);
+            this.panel4.Controls.Add(this.lblHeight);
+            this.panel4.Controls.Add(this.UpDownY);
+            this.panel4.Controls.Add(this.lblWidth);
+            this.panel4.Location = new System.Drawing.Point(643, -1);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(444, 72);
+            this.panel4.TabIndex = 21;
             // 
             // Form1
             // 
@@ -462,12 +489,14 @@ namespace Paint
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.penWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.penWidth)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,7 +539,8 @@ namespace Paint
         private System.Windows.Forms.NumericUpDown UpDownWidth;
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.PictureBox picBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
