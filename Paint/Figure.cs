@@ -18,9 +18,11 @@ namespace Paint
 
         abstract public void Draw(PaintEventArgs obj);
 
+        abstract public void PreDraw(PaintEventArgs obj, int Horz, int Vert);
+
         abstract public void SetSize(Point point);
 
-
+        abstract public int LeftClick(Point point);
 
         public void SetPenColor(Color color)
         {               

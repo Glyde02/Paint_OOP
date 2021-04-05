@@ -31,6 +31,13 @@ namespace Paint
             this.height = point.Y - this.leftUp.Y;
         }
        
+        public override int LeftClick(Point point)
+        {
+            this.leftUp = point;
+
+            return 0;
+        }
+
 
     }
 }

@@ -47,15 +47,17 @@ namespace Paint
             this.btnCircle = new System.Windows.Forms.Button();
             this.btcRect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.UpDownHeight = new System.Windows.Forms.NumericUpDown();
-            this.UpDownWidth = new System.Windows.Forms.NumericUpDown();
-            this.lblHeight = new System.Windows.Forms.Label();
-            this.lblWidth = new System.Windows.Forms.Label();
-            this.UpDownY = new System.Windows.Forms.NumericUpDown();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.UpDownX = new System.Windows.Forms.NumericUpDown();
-            this.lblY = new System.Windows.Forms.Label();
-            this.lblX = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.lblLeftUpDot = new System.Windows.Forms.Label();
+            this.UpDownHeight = new System.Windows.Forms.NumericUpDown();
+            this.lblX = new System.Windows.Forms.Label();
+            this.UpDownWidth = new System.Windows.Forms.NumericUpDown();
+            this.lblY = new System.Windows.Forms.Label();
+            this.lblHeight = new System.Windows.Forms.Label();
+            this.UpDownY = new System.Windows.Forms.NumericUpDown();
+            this.lblWidth = new System.Windows.Forms.Label();
             this.btnBrushColor = new System.Windows.Forms.Button();
             this.btnPenColor = new System.Windows.Forms.Button();
             this.penWidth = new System.Windows.Forms.NumericUpDown();
@@ -65,19 +67,19 @@ namespace Paint
             this.clrDlgPen = new System.Windows.Forms.ColorDialog();
             this.clrDlgBrush = new System.Windows.Forms.ColorDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnLine = new System.Windows.Forms.Button();
+            this.btnPolyline = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.penWidth)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBox1
@@ -195,6 +197,8 @@ namespace Paint
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnPolyline);
+            this.panel1.Controls.Add(this.btnLine);
             this.panel1.Controls.Add(this.btnCircle);
             this.panel1.Controls.Add(this.btcRect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -239,76 +243,25 @@ namespace Paint
             this.panel2.Size = new System.Drawing.Size(1202, 72);
             this.panel2.TabIndex = 4;
             // 
-            // UpDownHeight
+            // panel4
             // 
-            this.UpDownHeight.Location = new System.Drawing.Point(264, 36);
-            this.UpDownHeight.Maximum = new decimal(new int[] {
-            1920,
-            0,
-            0,
-            0});
-            this.UpDownHeight.Name = "UpDownHeight";
-            this.UpDownHeight.Size = new System.Drawing.Size(68, 20);
-            this.UpDownHeight.TabIndex = 20;
-            this.UpDownHeight.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            // 
-            // UpDownWidth
-            // 
-            this.UpDownWidth.Location = new System.Drawing.Point(264, 9);
-            this.UpDownWidth.Maximum = new decimal(new int[] {
-            1920,
-            0,
-            0,
-            0});
-            this.UpDownWidth.Name = "UpDownWidth";
-            this.UpDownWidth.Size = new System.Drawing.Size(68, 20);
-            this.UpDownWidth.TabIndex = 19;
-            this.UpDownWidth.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // lblHeight
-            // 
-            this.lblHeight.AutoSize = true;
-            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblHeight.Location = new System.Drawing.Point(212, 36);
-            this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(49, 17);
-            this.lblHeight.TabIndex = 18;
-            this.lblHeight.Text = "Height";
-            // 
-            // lblWidth
-            // 
-            this.lblWidth.AutoSize = true;
-            this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWidth.Location = new System.Drawing.Point(214, 12);
-            this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(44, 17);
-            this.lblWidth.TabIndex = 17;
-            this.lblWidth.Text = "Width";
-            // 
-            // UpDownY
-            // 
-            this.UpDownY.Location = new System.Drawing.Point(128, 37);
-            this.UpDownY.Maximum = new decimal(new int[] {
-            1080,
-            0,
-            0,
-            0});
-            this.UpDownY.Name = "UpDownY";
-            this.UpDownY.Size = new System.Drawing.Size(68, 20);
-            this.UpDownY.TabIndex = 16;
-            this.UpDownY.Value = new decimal(new int[] {
-            150,
-            0,
-            0,
-            0});
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.UpDownX);
+            this.panel4.Controls.Add(this.btnCreate);
+            this.panel4.Controls.Add(this.lblLeftUpDot);
+            this.panel4.Controls.Add(this.UpDownHeight);
+            this.panel4.Controls.Add(this.lblX);
+            this.panel4.Controls.Add(this.UpDownWidth);
+            this.panel4.Controls.Add(this.lblY);
+            this.panel4.Controls.Add(this.lblHeight);
+            this.panel4.Controls.Add(this.UpDownY);
+            this.panel4.Controls.Add(this.lblWidth);
+            this.panel4.Location = new System.Drawing.Point(757, -1);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(444, 72);
+            this.panel4.TabIndex = 21;
             // 
             // UpDownX
             // 
@@ -327,15 +280,42 @@ namespace Paint
             0,
             0});
             // 
-            // lblY
+            // btnCreate
             // 
-            this.lblY.AutoSize = true;
-            this.lblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblY.Location = new System.Drawing.Point(110, 37);
-            this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(17, 17);
-            this.lblY.TabIndex = 14;
-            this.lblY.Text = "Y";
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreate.Location = new System.Drawing.Point(359, 9);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 49);
+            this.btnCreate.TabIndex = 4;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // lblLeftUpDot
+            // 
+            this.lblLeftUpDot.AutoSize = true;
+            this.lblLeftUpDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblLeftUpDot.Location = new System.Drawing.Point(74, 12);
+            this.lblLeftUpDot.Name = "lblLeftUpDot";
+            this.lblLeftUpDot.Size = new System.Drawing.Size(78, 17);
+            this.lblLeftUpDot.TabIndex = 12;
+            this.lblLeftUpDot.Text = "Left Up dot";
+            // 
+            // UpDownHeight
+            // 
+            this.UpDownHeight.Location = new System.Drawing.Point(264, 36);
+            this.UpDownHeight.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.UpDownHeight.Name = "UpDownHeight";
+            this.UpDownHeight.Size = new System.Drawing.Size(68, 20);
+            this.UpDownHeight.TabIndex = 20;
+            this.UpDownHeight.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             // 
             // lblX
             // 
@@ -347,15 +327,69 @@ namespace Paint
             this.lblX.TabIndex = 13;
             this.lblX.Text = "X";
             // 
-            // lblLeftUpDot
+            // UpDownWidth
             // 
-            this.lblLeftUpDot.AutoSize = true;
-            this.lblLeftUpDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLeftUpDot.Location = new System.Drawing.Point(74, 12);
-            this.lblLeftUpDot.Name = "lblLeftUpDot";
-            this.lblLeftUpDot.Size = new System.Drawing.Size(78, 17);
-            this.lblLeftUpDot.TabIndex = 12;
-            this.lblLeftUpDot.Text = "Left Up dot";
+            this.UpDownWidth.Location = new System.Drawing.Point(264, 9);
+            this.UpDownWidth.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.UpDownWidth.Name = "UpDownWidth";
+            this.UpDownWidth.Size = new System.Drawing.Size(68, 20);
+            this.UpDownWidth.TabIndex = 19;
+            this.UpDownWidth.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // lblY
+            // 
+            this.lblY.AutoSize = true;
+            this.lblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblY.Location = new System.Drawing.Point(110, 37);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(17, 17);
+            this.lblY.TabIndex = 14;
+            this.lblY.Text = "Y";
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblHeight.Location = new System.Drawing.Point(212, 36);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(49, 17);
+            this.lblHeight.TabIndex = 18;
+            this.lblHeight.Text = "Height";
+            // 
+            // UpDownY
+            // 
+            this.UpDownY.Location = new System.Drawing.Point(128, 37);
+            this.UpDownY.Maximum = new decimal(new int[] {
+            1080,
+            0,
+            0,
+            0});
+            this.UpDownY.Name = "UpDownY";
+            this.UpDownY.Size = new System.Drawing.Size(68, 20);
+            this.UpDownY.TabIndex = 16;
+            this.UpDownY.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
+            // lblWidth
+            // 
+            this.lblWidth.AutoSize = true;
+            this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWidth.Location = new System.Drawing.Point(214, 12);
+            this.lblWidth.Name = "lblWidth";
+            this.lblWidth.Size = new System.Drawing.Size(44, 17);
+            this.lblWidth.TabIndex = 17;
+            this.lblWidth.Text = "Width";
             // 
             // btnBrushColor
             // 
@@ -441,35 +475,25 @@ namespace Paint
             this.panel3.Size = new System.Drawing.Size(1202, 566);
             this.panel3.TabIndex = 5;
             // 
-            // btnCreate
+            // btnLine
             // 
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreate.Location = new System.Drawing.Point(359, 9);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 49);
-            this.btnCreate.TabIndex = 4;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnLine.Location = new System.Drawing.Point(4, 104);
+            this.btnLine.Name = "btnLine";
+            this.btnLine.Size = new System.Drawing.Size(70, 40);
+            this.btnLine.TabIndex = 2;
+            this.btnLine.Text = "Line";
+            this.btnLine.UseVisualStyleBackColor = true;
+            this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
             // 
-            // panel4
+            // btnPolyline
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.UpDownX);
-            this.panel4.Controls.Add(this.btnCreate);
-            this.panel4.Controls.Add(this.lblLeftUpDot);
-            this.panel4.Controls.Add(this.UpDownHeight);
-            this.panel4.Controls.Add(this.lblX);
-            this.panel4.Controls.Add(this.UpDownWidth);
-            this.panel4.Controls.Add(this.lblY);
-            this.panel4.Controls.Add(this.lblHeight);
-            this.panel4.Controls.Add(this.UpDownY);
-            this.panel4.Controls.Add(this.lblWidth);
-            this.panel4.Location = new System.Drawing.Point(757, -1);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(444, 72);
-            this.panel4.TabIndex = 21;
+            this.btnPolyline.Location = new System.Drawing.Point(4, 179);
+            this.btnPolyline.Name = "btnPolyline";
+            this.btnPolyline.Size = new System.Drawing.Size(70, 40);
+            this.btnPolyline.TabIndex = 3;
+            this.btnPolyline.Text = "Polyline";
+            this.btnPolyline.UseVisualStyleBackColor = true;
+            this.btnPolyline.Click += new System.EventHandler(this.btnPolyline_Click);
             // 
             // Form1
             // 
@@ -489,14 +513,14 @@ namespace Paint
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.penWidth)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +565,8 @@ namespace Paint
         public System.Windows.Forms.PictureBox picBox1;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnLine;
+        private System.Windows.Forms.Button btnPolyline;
     }
 }
 

@@ -31,5 +31,10 @@ namespace Paint
         {
             return new Circle { };
         }
+
+        public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

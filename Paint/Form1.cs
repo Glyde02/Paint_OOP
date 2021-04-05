@@ -101,12 +101,22 @@ namespace Paint
                 SetAttribute(currFigure);
 
                 Point point = new Point(e.X, e.Y);
-                this.currFigure.Init(point);
+                //this.currFigure.Init(point);
+
+                if (1 == this.currFigure.LeftClick(point))
+                {
+
+                }
+                else
+                {
+
+                }
             }
             else
             {
                 PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-                this.currFigure.Draw(b);
+                //this.currFigure.Draw(b);
+
                 listFigures.Add(currFigure);
                 currFigure = null;
                
@@ -119,8 +129,9 @@ namespace Paint
         {
             if (this.currFigure != null)
             {
-                this.currFigure.SetSize(e.Location);
+                //this.currFigure.SetSize(e.Location);
                 pic.Clear(Color.White);
+
                 if (listFigures != null)
                 {
                     foreach (Figure figure in listFigures)
@@ -132,7 +143,8 @@ namespace Paint
                 }
 
                 PaintEventArgs c = new PaintEventArgs(pic, new Rectangle());
-                currFigure.Draw(c);
+                currFigure.PreDraw(c, e.X, e.Y);
+                //currFigure.Draw(c);
 
                 picBox1.Image = bitmap;
             }
@@ -151,6 +163,18 @@ namespace Paint
             //    picBox1.Image = bitmap;
             //}
 
+        }
+
+        private void btnLine_Click(object sender, EventArgs e)
+        {
+            this.currFigure = new Line();
+            this.lastFigure = this.currFigure;
+        }
+
+        private void btnPolyline_Click(object sender, EventArgs e)
+        {
+            this.currFigure = new Polyline();
+            this.lastFigure = this.currFigure;
         }
     }
 }
