@@ -47,8 +47,8 @@ namespace Paint
 
         public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
         {
-            lastDot.X = Horz;
-            lastDot.Y = Vert;
+            this.lastDot.X = Horz;
+            this.lastDot.Y = Vert;
 
             if (this.points.Count > 0)
             {

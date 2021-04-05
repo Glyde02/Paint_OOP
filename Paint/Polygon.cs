@@ -15,13 +15,27 @@ namespace Paint
         {
             if (this.points.Count > 0)
             {
-                Pen pen = new Pen(this.penColor, this.penWidth);
+                
 
                 this.points.Add(lastDot);
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawPolygon(pen, pt);
+                
 
+                SolidBrush brush = new SolidBrush(this.brushColor);
+                obj.Graphics.FillPolygon(brush, pt);
+
+
+                if (this.penWidth > 0)
+                {
+                    Pen pen = new Pen(this.penColor, this.penWidth);
+                    obj.Graphics.DrawPolygon(pen, pt);
+                }
+                else
+                {
+                    Pen pen = new Pen(this.brushColor, 1);
+                    obj.Graphics.DrawPolygon(pen, pt);
+                }
                 //this.points.RemoveAt(this.points.Count-1);
             }
             //SolidBrush Brush = new SolidBrush(this.brushColor);
@@ -47,12 +61,12 @@ namespace Paint
 
         public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
         {
-            lastDot.X = Horz;
-            lastDot.Y = Vert;
+            this.lastDot.X = Horz;
+            this.lastDot.Y = Vert;
 
             if (this.points.Count > 0)
             {
-                Pen pen = new Pen(this.penColor, this.penWidth);
+                
 
                 Point lastDot = this.points[this.points.Count - 1];
                 lastDot.X = Horz;
@@ -61,7 +75,21 @@ namespace Paint
 
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawPolygon(pen, pt);
+
+                SolidBrush brush = new SolidBrush(this.brushColor);
+                obj.Graphics.FillPolygon(brush, pt);
+
+                if (this.penWidth > 0)
+                {
+                    Pen pen = new Pen(this.penColor, this.penWidth);
+                    obj.Graphics.DrawPolygon(pen, pt);
+                } else
+                {
+                    Pen pen = new Pen(this.brushColor, 1);
+                    obj.Graphics.DrawPolygon(pen, pt);
+                }
+
+
 
                 this.points.RemoveAt(this.points.Count - 1);
             }
