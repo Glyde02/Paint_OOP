@@ -43,7 +43,12 @@ namespace Paint
 
         public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
         {
-            throw new NotImplementedException();
+
+            this.rightDown.X = Horz;
+            this.rightDown.Y = Vert;
+
+            Draw(obj);
+
         }
     }
 }

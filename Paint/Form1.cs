@@ -115,7 +115,7 @@ namespace Paint
             else
             {
                 PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-                //this.currFigure.Draw(b);
+                this.currFigure.Draw(b);
 
                 listFigures.Add(currFigure);
                 currFigure = null;
@@ -174,6 +174,12 @@ namespace Paint
         private void btnPolyline_Click(object sender, EventArgs e)
         {
             this.currFigure = new Polyline();
+            this.lastFigure = this.currFigure;
+        }
+
+        private void btnPolygon_Click(object sender, EventArgs e)
+        {
+            this.currFigure = new Polygon();
             this.lastFigure = this.currFigure;
         }
     }

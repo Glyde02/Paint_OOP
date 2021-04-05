@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Paint
 {
-    class Polyline : DynamicFigure
+    class Polygon : DynamicFigure
     {
 
         public override void Draw(PaintEventArgs obj)
@@ -20,7 +20,7 @@ namespace Paint
                 this.points.Add(lastDot);
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawLines(pen, pt);
+                obj.Graphics.DrawPolygon(pen, pt);
 
                 //this.points.RemoveAt(this.points.Count-1);
             }
@@ -36,9 +36,9 @@ namespace Paint
             //obj.Graphics.FillRectangle(Brush, rect);
 
 
-           
+
             //if (pen.Width == 0)
-             //   pen.Width = 1;
+            //   pen.Width = 1;
             //obj.Graphics.DrawLine(pen, point1, point2);
             //obj.Graphics.DrawRectangle(pen, rect);
 
@@ -54,14 +54,14 @@ namespace Paint
             {
                 Pen pen = new Pen(this.penColor, this.penWidth);
 
-                Point lastDot = this.points[this.points.Count-1];
+                Point lastDot = this.points[this.points.Count - 1];
                 lastDot.X = Horz;
                 lastDot.Y = Vert;
                 this.points.Add(lastDot);
 
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawLines(pen, pt);
+                obj.Graphics.DrawPolygon(pen, pt);
 
                 this.points.RemoveAt(this.points.Count - 1);
             }
@@ -69,7 +69,7 @@ namespace Paint
 
         public override Figure Clone()
         {
-            return new Polyline { };
+            return new Polygon { };
         }
     }
 }

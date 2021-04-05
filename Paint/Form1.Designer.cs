@@ -44,6 +44,8 @@ namespace Paint
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.aboutProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPolyline = new System.Windows.Forms.Button();
+            this.btnLine = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btcRect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -67,8 +69,7 @@ namespace Paint
             this.clrDlgPen = new System.Windows.Forms.ColorDialog();
             this.clrDlgBrush = new System.Windows.Forms.ColorDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnLine = new System.Windows.Forms.Button();
-            this.btnPolyline = new System.Windows.Forms.Button();
+            this.btnPolygon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -197,6 +198,7 @@ namespace Paint
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnPolygon);
             this.panel1.Controls.Add(this.btnPolyline);
             this.panel1.Controls.Add(this.btnLine);
             this.panel1.Controls.Add(this.btnCircle);
@@ -206,6 +208,26 @@ namespace Paint
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(79, 563);
             this.panel1.TabIndex = 3;
+            // 
+            // btnPolyline
+            // 
+            this.btnPolyline.Location = new System.Drawing.Point(4, 179);
+            this.btnPolyline.Name = "btnPolyline";
+            this.btnPolyline.Size = new System.Drawing.Size(70, 40);
+            this.btnPolyline.TabIndex = 3;
+            this.btnPolyline.Text = "Polyline";
+            this.btnPolyline.UseVisualStyleBackColor = true;
+            this.btnPolyline.Click += new System.EventHandler(this.btnPolyline_Click);
+            // 
+            // btnLine
+            // 
+            this.btnLine.Location = new System.Drawing.Point(4, 104);
+            this.btnLine.Name = "btnLine";
+            this.btnLine.Size = new System.Drawing.Size(70, 40);
+            this.btnLine.TabIndex = 2;
+            this.btnLine.Text = "Line";
+            this.btnLine.UseVisualStyleBackColor = true;
+            this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
             // 
             // btnCircle
             // 
@@ -475,25 +497,15 @@ namespace Paint
             this.panel3.Size = new System.Drawing.Size(1202, 566);
             this.panel3.TabIndex = 5;
             // 
-            // btnLine
+            // btnPolygon
             // 
-            this.btnLine.Location = new System.Drawing.Point(4, 104);
-            this.btnLine.Name = "btnLine";
-            this.btnLine.Size = new System.Drawing.Size(70, 40);
-            this.btnLine.TabIndex = 2;
-            this.btnLine.Text = "Line";
-            this.btnLine.UseVisualStyleBackColor = true;
-            this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
-            // 
-            // btnPolyline
-            // 
-            this.btnPolyline.Location = new System.Drawing.Point(4, 179);
-            this.btnPolyline.Name = "btnPolyline";
-            this.btnPolyline.Size = new System.Drawing.Size(70, 40);
-            this.btnPolyline.TabIndex = 3;
-            this.btnPolyline.Text = "Polyline";
-            this.btnPolyline.UseVisualStyleBackColor = true;
-            this.btnPolyline.Click += new System.EventHandler(this.btnPolyline_Click);
+            this.btnPolygon.Location = new System.Drawing.Point(4, 225);
+            this.btnPolygon.Name = "btnPolygon";
+            this.btnPolygon.Size = new System.Drawing.Size(70, 40);
+            this.btnPolygon.TabIndex = 4;
+            this.btnPolygon.Text = "Polygon";
+            this.btnPolygon.UseVisualStyleBackColor = true;
+            this.btnPolygon.Click += new System.EventHandler(this.btnPolygon_Click);
             // 
             // Form1
             // 
@@ -567,6 +579,7 @@ namespace Paint
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnLine;
         private System.Windows.Forms.Button btnPolyline;
+        private System.Windows.Forms.Button btnPolygon;
     }
 }
 

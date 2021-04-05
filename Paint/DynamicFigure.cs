@@ -16,9 +16,7 @@ namespace Paint
         //
 
         protected Point leftUp;
-        protected Point rightDown;
-        protected int width;
-        protected int height;
+        protected Point lastDot;
 
         public override int LeftClick(Point point)
         {
