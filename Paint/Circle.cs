@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Paint
 {
-    class Circle : SimpleFigure
+    public class Circle : SimpleFigure
     {
         public override void Draw(PaintEventArgs obj)
         {

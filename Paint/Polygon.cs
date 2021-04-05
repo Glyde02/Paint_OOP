@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Paint
 {
-    class Polygon : DynamicFigure
+    public class Polygon : DynamicFigure
     {
 
         public override void Draw(PaintEventArgs obj)

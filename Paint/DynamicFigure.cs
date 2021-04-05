@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Paint
 {
-    abstract class DynamicFigure : Figure
+    public abstract class DynamicFigure : Figure
     {
         protected List<Point> points = new List<Point>();
 

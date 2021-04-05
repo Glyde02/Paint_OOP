@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Paint
 {
-    abstract class SimpleFigure : Figure
+    public abstract class SimpleFigure : Figure
     {
         protected Point leftUp;
         protected Point rightDown;

@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Paint
 {
-    class Polyline : DynamicFigure
+    public class Polyline : DynamicFigure
     {
 
         public override void Draw(PaintEventArgs obj)

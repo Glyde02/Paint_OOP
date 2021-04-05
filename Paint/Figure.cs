@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Paint
 {
-    abstract class Figure
+    public abstract class Figure
     {
         public Color penColor;
         protected Color brushColor;
