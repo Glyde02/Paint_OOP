@@ -11,7 +11,7 @@ namespace Paint
     public class Polyline : DynamicFigure
     {
 
-        public override void Draw(PaintEventArgs obj)
+        public override void Draw(Graphics obj)
         {
             if (this.points.Count > 0)
             {
@@ -20,7 +20,7 @@ namespace Paint
                 this.points.Add(lastDot);
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawLines(pen, pt);
+                obj.DrawLines(pen, pt);
 
                 //this.points.RemoveAt(this.points.Count-1);
             }
@@ -45,7 +45,7 @@ namespace Paint
 
         }
 
-        public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
+        public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
             this.lastDot.X = Horz;
             this.lastDot.Y = Vert;
@@ -61,7 +61,7 @@ namespace Paint
 
                 Point[] pt = this.points.ToArray();
 
-                obj.Graphics.DrawLines(pen, pt);
+                obj.DrawLines(pen, pt);
 
                 this.points.RemoveAt(this.points.Count - 1);
             }

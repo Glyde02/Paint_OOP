@@ -11,7 +11,7 @@ namespace Paint
     public class Polygon : DynamicFigure
     {
 
-        public override void Draw(PaintEventArgs obj)
+        public override void Draw(Graphics obj)
         {
             if (this.points.Count > 0)
             {
@@ -23,18 +23,18 @@ namespace Paint
                 
 
                 SolidBrush brush = new SolidBrush(this.brushColor);
-                obj.Graphics.FillPolygon(brush, pt);
+                obj.FillPolygon(brush, pt);
 
 
                 if (this.penWidth > 0)
                 {
                     Pen pen = new Pen(this.penColor, this.penWidth);
-                    obj.Graphics.DrawPolygon(pen, pt);
+                    obj.DrawPolygon(pen, pt);
                 }
                 else
                 {
                     Pen pen = new Pen(this.brushColor, 1);
-                    obj.Graphics.DrawPolygon(pen, pt);
+                    obj.DrawPolygon(pen, pt);
                 }
                 //this.points.RemoveAt(this.points.Count-1);
             }
@@ -59,7 +59,7 @@ namespace Paint
 
         }
 
-        public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
+        public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
             this.lastDot.X = Horz;
             this.lastDot.Y = Vert;
@@ -77,16 +77,16 @@ namespace Paint
 
 
                 SolidBrush brush = new SolidBrush(this.brushColor);
-                obj.Graphics.FillPolygon(brush, pt);
+                obj.FillPolygon(brush, pt);
 
                 if (this.penWidth > 0)
                 {
                     Pen pen = new Pen(this.penColor, this.penWidth);
-                    obj.Graphics.DrawPolygon(pen, pt);
+                    obj.DrawPolygon(pen, pt);
                 } else
                 {
                     Pen pen = new Pen(this.brushColor, 1);
-                    obj.Graphics.DrawPolygon(pen, pt);
+                    obj.DrawPolygon(pen, pt);
                 }
 
 

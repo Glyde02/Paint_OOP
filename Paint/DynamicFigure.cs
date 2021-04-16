@@ -11,10 +11,6 @@ namespace Paint
     {
         protected List<Point> points = new List<Point>();
 
-        //
-        //
-        //
-
         protected Point leftUp;
         protected Point lastDot;
 
@@ -26,10 +22,6 @@ namespace Paint
             return 1;
         }
 
-
-        //
-        //
-        //
 
         public override void Init(Point point)
         {

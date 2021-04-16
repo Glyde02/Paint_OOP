@@ -10,7 +10,8 @@ namespace Paint
         public Bitmap bitmap;
         public Graphics pic;
 
-        private List<Figure> listFigures = new List<Figure>();
+        //private List<Figure> listFigures = new List<Figure>();
+        private FigureList figureList = new FigureList();
         private Figure currFigure;
         private Figure lastFigure;
 
@@ -94,6 +95,8 @@ namespace Paint
         {
 
 
+            //btnUndo.Enabled = true;
+
             if (e.Button == MouseButtons.Left)
             {
                 if (currFigure == null)
@@ -103,21 +106,34 @@ namespace Paint
                 Point point = new Point(e.X, e.Y);
                 //this.currFigure.Init(point);
 
-                if (1 == this.currFigure.LeftClick(point))
-                {
+                this.currFigure.LeftClick(point);
+                //if (this.currFigure.LeftClick(point) == 1)
+                //{
 
-                }
-                else
-                {
+                //}
+                //else
+                //{
 
-                }
+                //}
+
+                figureList.ClearList();
+                btnRedo.Enabled = false;
+
             }
             else
             {
                 PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-                this.currFigure.Draw(b);
+                this.currFigure.Draw(pic);
+                
+                
+                //
+                this.currFigure.Draw(pic);
+                //
 
-                listFigures.Add(currFigure);
+
+                figureList.list.Add(currFigure);
+                btnUndo.Enabled = true;
+                //listFigures.Add(currFigure);
                 currFigure = null;
                
                 picBox1.Image = bitmap;
@@ -132,18 +148,20 @@ namespace Paint
                 //this.currFigure.SetSize(e.Location);
                 pic.Clear(Color.White);
 
-                if (listFigures != null)
-                {
-                    foreach (Figure figure in listFigures)
-                    {
-                        PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-                        figure.Draw(b);
-                    }
+
+                DrawAllList();
+                //if (figureList.list != null)
+                //{
+                //    foreach (Figure figure in figureList.list)
+                //    {
+                //        PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
+                //        figure.Draw(b);
+                //    }
                     
-                }
+                //}
 
                 PaintEventArgs c = new PaintEventArgs(pic, new Rectangle());
-                currFigure.PreDraw(c, e.X, e.Y);
+                currFigure.PreDraw(pic, e.X, e.Y);
                 //currFigure.Draw(c);
 
                 picBox1.Image = bitmap;
@@ -181,6 +199,48 @@ namespace Paint
         {
             this.currFigure = new Polygon();
             this.lastFigure = this.currFigure;
+        }
+
+        private void DrawAllList()
+        {
+            if (figureList.list != null)
+            {
+                foreach (Figure figure in figureList.list)
+                {
+                    PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
+                    figure.Draw(pic);
+                }
+                
+            }
+
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            pic.Clear(Color.White);
+
+            if (figureList.Undo() == false)
+                btnUndo.Enabled = false;
+
+            btnRedo.Enabled = true;
+
+            DrawAllList();
+
+            picBox1.Image = bitmap;
+        }
+
+        private void btnRedo_Click(object sender, EventArgs e)
+        {
+            pic.Clear(Color.White);
+
+            if (figureList.Redo() == false)
+                btnRedo.Enabled = false;
+
+            btnUndo.Enabled = true;
+
+            DrawAllList();
+
+            picBox1.Image = bitmap;
         }
     }
 }

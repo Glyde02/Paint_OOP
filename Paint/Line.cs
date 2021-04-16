@@ -10,7 +10,7 @@ namespace Paint
 {
     public class Line : SimpleFigure
     {
-        public override void Draw(PaintEventArgs obj)
+        public override void Draw(Graphics obj)
         {
 
             //SolidBrush Brush = new SolidBrush(this.brushColor);
@@ -30,7 +30,7 @@ namespace Paint
             Pen pen = new Pen(this.penColor, this.penWidth);
             if (pen.Width == 0)
                 pen.Width = 1;
-            obj.Graphics.DrawLine(pen, point1, point2);
+            obj.DrawLine(pen, point1, point2);
             //obj.Graphics.DrawRectangle(pen, rect);
 
 
@@ -41,7 +41,7 @@ namespace Paint
             return new Line { };
         }
 
-        public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
+        public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
 
             this.rightDown.X = Horz;

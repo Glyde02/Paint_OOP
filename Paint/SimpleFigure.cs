@@ -37,7 +37,7 @@ namespace Paint
 
             return 0;
         }
-        public override void PreDraw(PaintEventArgs obj, int Vert, int Horz)
+        public override void PreDraw(Graphics obj, int Vert, int Horz)
         {
             throw new NotImplementedException();
         }

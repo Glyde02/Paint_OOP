@@ -16,9 +16,9 @@ namespace Paint
 
         abstract public void Init(Point point);
 
-        abstract public void Draw(PaintEventArgs obj);
+        abstract public void Draw(Graphics obj);
 
-        abstract public void PreDraw(PaintEventArgs obj, int Horz, int Vert);
+        abstract public void PreDraw(Graphics obj, int Horz, int Vert);
 
         abstract public void SetSize(Point point);
 

@@ -10,18 +10,18 @@ namespace Paint
 {
     public class Circle : SimpleFigure
     {
-        public override void Draw(PaintEventArgs obj)
+        public override void Draw(Graphics obj)
         {
 
             SolidBrush brush = new SolidBrush(this.brushColor);
             Rectangle circleRect = new Rectangle(this.leftUp, new Size(this.width, this.height));
 
-            obj.Graphics.FillEllipse(brush, circleRect);
+            obj.FillEllipse(brush, circleRect);
 
             if (this.penWidth != 0)
             {
                 Pen pen = new Pen(this.penColor, this.penWidth);
-                obj.Graphics.DrawEllipse(pen, circleRect);
+                obj.DrawEllipse(pen, circleRect);
             }
 
         }
@@ -32,7 +32,7 @@ namespace Paint
             return new Circle { };
         }
 
-        public override void PreDraw(PaintEventArgs obj, int Horz, int Vert)
+        public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
             this.width = Horz - this.leftUp.X;
             this.height = Vert - this.leftUp.Y;

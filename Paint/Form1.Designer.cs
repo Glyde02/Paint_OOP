@@ -44,11 +44,14 @@ namespace Paint
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.aboutProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPolygon = new System.Windows.Forms.Button();
             this.btnPolyline = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btcRect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRedo = new System.Windows.Forms.Button();
+            this.btnUndo = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.UpDownX = new System.Windows.Forms.NumericUpDown();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -69,7 +72,6 @@ namespace Paint
             this.clrDlgPen = new System.Windows.Forms.ColorDialog();
             this.clrDlgBrush = new System.Windows.Forms.ColorDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnPolygon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -209,6 +211,16 @@ namespace Paint
             this.panel1.Size = new System.Drawing.Size(79, 563);
             this.panel1.TabIndex = 3;
             // 
+            // btnPolygon
+            // 
+            this.btnPolygon.Location = new System.Drawing.Point(4, 225);
+            this.btnPolygon.Name = "btnPolygon";
+            this.btnPolygon.Size = new System.Drawing.Size(70, 40);
+            this.btnPolygon.TabIndex = 4;
+            this.btnPolygon.Text = "Polygon";
+            this.btnPolygon.UseVisualStyleBackColor = true;
+            this.btnPolygon.Click += new System.EventHandler(this.btnPolygon_Click);
+            // 
             // btnPolyline
             // 
             this.btnPolyline.Location = new System.Drawing.Point(4, 179);
@@ -252,6 +264,8 @@ namespace Paint
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnRedo);
+            this.panel2.Controls.Add(this.btnUndo);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.btnBrushColor);
             this.panel2.Controls.Add(this.btnPenColor);
@@ -264,6 +278,28 @@ namespace Paint
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1202, 72);
             this.panel2.TabIndex = 4;
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Enabled = false;
+            this.btnRedo.Location = new System.Drawing.Point(566, 12);
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Size = new System.Drawing.Size(51, 50);
+            this.btnRedo.TabIndex = 23;
+            this.btnRedo.Text = "Redo";
+            this.btnRedo.UseVisualStyleBackColor = true;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Enabled = false;
+            this.btnUndo.Location = new System.Drawing.Point(509, 12);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(51, 50);
+            this.btnUndo.TabIndex = 22;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // panel4
             // 
@@ -287,6 +323,7 @@ namespace Paint
             // 
             // UpDownX
             // 
+            this.UpDownX.Enabled = false;
             this.UpDownX.Location = new System.Drawing.Point(32, 36);
             this.UpDownX.Maximum = new decimal(new int[] {
             1920,
@@ -304,6 +341,7 @@ namespace Paint
             // 
             // btnCreate
             // 
+            this.btnCreate.Enabled = false;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreate.Location = new System.Drawing.Point(359, 9);
             this.btnCreate.Name = "btnCreate";
@@ -315,6 +353,7 @@ namespace Paint
             // lblLeftUpDot
             // 
             this.lblLeftUpDot.AutoSize = true;
+            this.lblLeftUpDot.Enabled = false;
             this.lblLeftUpDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblLeftUpDot.Location = new System.Drawing.Point(74, 12);
             this.lblLeftUpDot.Name = "lblLeftUpDot";
@@ -324,6 +363,7 @@ namespace Paint
             // 
             // UpDownHeight
             // 
+            this.UpDownHeight.Enabled = false;
             this.UpDownHeight.Location = new System.Drawing.Point(264, 36);
             this.UpDownHeight.Maximum = new decimal(new int[] {
             1920,
@@ -342,6 +382,7 @@ namespace Paint
             // lblX
             // 
             this.lblX.AutoSize = true;
+            this.lblX.Enabled = false;
             this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblX.Location = new System.Drawing.Point(12, 37);
             this.lblX.Name = "lblX";
@@ -351,6 +392,7 @@ namespace Paint
             // 
             // UpDownWidth
             // 
+            this.UpDownWidth.Enabled = false;
             this.UpDownWidth.Location = new System.Drawing.Point(264, 9);
             this.UpDownWidth.Maximum = new decimal(new int[] {
             1920,
@@ -369,6 +411,7 @@ namespace Paint
             // lblY
             // 
             this.lblY.AutoSize = true;
+            this.lblY.Enabled = false;
             this.lblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblY.Location = new System.Drawing.Point(110, 37);
             this.lblY.Name = "lblY";
@@ -379,6 +422,7 @@ namespace Paint
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
+            this.lblHeight.Enabled = false;
             this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblHeight.Location = new System.Drawing.Point(212, 36);
             this.lblHeight.Name = "lblHeight";
@@ -388,6 +432,7 @@ namespace Paint
             // 
             // UpDownY
             // 
+            this.UpDownY.Enabled = false;
             this.UpDownY.Location = new System.Drawing.Point(128, 37);
             this.UpDownY.Maximum = new decimal(new int[] {
             1080,
@@ -406,6 +451,7 @@ namespace Paint
             // lblWidth
             // 
             this.lblWidth.AutoSize = true;
+            this.lblWidth.Enabled = false;
             this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblWidth.Location = new System.Drawing.Point(214, 12);
             this.lblWidth.Name = "lblWidth";
@@ -497,16 +543,6 @@ namespace Paint
             this.panel3.Size = new System.Drawing.Size(1202, 566);
             this.panel3.TabIndex = 5;
             // 
-            // btnPolygon
-            // 
-            this.btnPolygon.Location = new System.Drawing.Point(4, 225);
-            this.btnPolygon.Name = "btnPolygon";
-            this.btnPolygon.Size = new System.Drawing.Size(70, 40);
-            this.btnPolygon.TabIndex = 4;
-            this.btnPolygon.Text = "Polygon";
-            this.btnPolygon.UseVisualStyleBackColor = true;
-            this.btnPolygon.Click += new System.EventHandler(this.btnPolygon_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +616,8 @@ namespace Paint
         private System.Windows.Forms.Button btnLine;
         private System.Windows.Forms.Button btnPolyline;
         private System.Windows.Forms.Button btnPolygon;
+        private System.Windows.Forms.Button btnRedo;
+        private System.Windows.Forms.Button btnUndo;
     }
 }
 
