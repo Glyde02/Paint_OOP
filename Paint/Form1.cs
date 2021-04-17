@@ -87,6 +87,8 @@ namespace Paint
 
                 figureList.ClearList();
                 btnRedo.Enabled = false;
+                redoToolStripMenuItem.Enabled = false;
+                    
 
             }
             else
@@ -95,6 +97,7 @@ namespace Paint
 
                 figureList.list.Add(currFigure);
                 btnUndo.Enabled = true;
+                undoToolStripMenuItem.Enabled = true;
 
                 currFigure = null;               
                 picBox1.Image = bitmap;
@@ -148,8 +151,12 @@ namespace Paint
             pic.Clear(Color.White);
 
             if (figureList.Undo() == false)
+            {
                 btnUndo.Enabled = false;
+                undoToolStripMenuItem.Enabled = false;
+            }
             btnRedo.Enabled = true;
+            redoToolStripMenuItem.Enabled = true;
 
             DrawAllList();
             picBox1.Image = bitmap;
@@ -160,11 +167,26 @@ namespace Paint
             pic.Clear(Color.White);
 
             if (figureList.Redo() == false)
+            {
                 btnRedo.Enabled = false;
+                redoToolStripMenuItem.Enabled = false;
+            }
             btnUndo.Enabled = true;
+            undoToolStripMenuItem.Enabled = true;
 
             DrawAllList();
             picBox1.Image = bitmap;
         }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnRedo_Click(sender, e);
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnUndo_Click(sender, e);
+        }
+
     }
 }

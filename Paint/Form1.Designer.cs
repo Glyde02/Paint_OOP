@@ -29,7 +29,7 @@ namespace Paint
         /// </summary>
         private void InitializeComponent()
         {
-            this.picBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,18 +37,14 @@ namespace Paint
             this.nToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFigureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.aboutProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPolygon = new System.Windows.Forms.Button();
-            this.btnPolyline = new System.Windows.Forms.Button();
-            this.btnLine = new System.Windows.Forms.Button();
-            this.btnCircle = new System.Windows.Forms.Button();
-            this.btcRect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnRedo = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
@@ -72,7 +68,11 @@ namespace Paint
             this.clrDlgPen = new System.Windows.Forms.ColorDialog();
             this.clrDlgBrush = new System.Windows.Forms.ColorDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPolyline = new System.Windows.Forms.Button();
+            this.btnLine = new System.Windows.Forms.Button();
+            this.btnCircle = new System.Windows.Forms.Button();
+            this.btcRect = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,24 +83,8 @@ namespace Paint
             ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.penWidth)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picBox1
-            // 
-            this.picBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox1.Location = new System.Drawing.Point(81, 1);
-            this.picBox1.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(1120, 564);
-            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox1.TabIndex = 0;
-            this.picBox1.TabStop = false;
-            this.picBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseDown);
-            this.picBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseMove);
             // 
             // menuStrip1
             // 
@@ -151,23 +135,27 @@ namespace Paint
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.redoToolStripMenuItem,
-            this.undoToolStripMenuItem});
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            // 
             // undoToolStripMenuItem
             // 
+            this.undoToolStripMenuItem.Enabled = false;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Enabled = false;
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -212,53 +200,13 @@ namespace Paint
             // 
             // btnPolygon
             // 
+            this.btnPolygon.BackgroundImage = global::Paint.Properties.Resources.polygon;
             this.btnPolygon.Location = new System.Drawing.Point(4, 225);
             this.btnPolygon.Name = "btnPolygon";
             this.btnPolygon.Size = new System.Drawing.Size(70, 40);
             this.btnPolygon.TabIndex = 4;
-            this.btnPolygon.Text = "Polygon";
             this.btnPolygon.UseVisualStyleBackColor = true;
             this.btnPolygon.Click += new System.EventHandler(this.btnPolygon_Click);
-            // 
-            // btnPolyline
-            // 
-            this.btnPolyline.Location = new System.Drawing.Point(4, 179);
-            this.btnPolyline.Name = "btnPolyline";
-            this.btnPolyline.Size = new System.Drawing.Size(70, 40);
-            this.btnPolyline.TabIndex = 3;
-            this.btnPolyline.Text = "Polyline";
-            this.btnPolyline.UseVisualStyleBackColor = true;
-            this.btnPolyline.Click += new System.EventHandler(this.btnPolyline_Click);
-            // 
-            // btnLine
-            // 
-            this.btnLine.Location = new System.Drawing.Point(4, 104);
-            this.btnLine.Name = "btnLine";
-            this.btnLine.Size = new System.Drawing.Size(70, 40);
-            this.btnLine.TabIndex = 2;
-            this.btnLine.Text = "Line";
-            this.btnLine.UseVisualStyleBackColor = true;
-            this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
-            // 
-            // btnCircle
-            // 
-            this.btnCircle.Location = new System.Drawing.Point(4, 58);
-            this.btnCircle.Name = "btnCircle";
-            this.btnCircle.Size = new System.Drawing.Size(70, 40);
-            this.btnCircle.TabIndex = 1;
-            this.btnCircle.Text = "Circle";
-            this.btnCircle.UseVisualStyleBackColor = true;
-            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
-            // 
-            // btcRect
-            // 
-            this.btcRect.Location = new System.Drawing.Point(4, 12);
-            this.btcRect.Name = "btcRect";
-            this.btcRect.Size = new System.Drawing.Size(70, 40);
-            this.btcRect.TabIndex = 0;
-            this.btcRect.Text = "Rectangle";
-            this.btcRect.UseVisualStyleBackColor = true;
-            this.btcRect.Click += new System.EventHandler(this.btcRect_Click);
             // 
             // panel2
             // 
@@ -542,6 +490,63 @@ namespace Paint
             this.panel3.Size = new System.Drawing.Size(1202, 566);
             this.panel3.TabIndex = 5;
             // 
+            // picBox1
+            // 
+            this.picBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox1.Location = new System.Drawing.Point(81, 1);
+            this.picBox1.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(1120, 564);
+            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox1.TabIndex = 0;
+            this.picBox1.TabStop = false;
+            this.picBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseDown);
+            this.picBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseMove);
+            // 
+            // btnPolyline
+            // 
+            this.btnPolyline.BackgroundImage = global::Paint.Properties.Resources.polyline;
+            this.btnPolyline.Location = new System.Drawing.Point(4, 179);
+            this.btnPolyline.Name = "btnPolyline";
+            this.btnPolyline.Size = new System.Drawing.Size(70, 40);
+            this.btnPolyline.TabIndex = 3;
+            this.btnPolyline.UseVisualStyleBackColor = true;
+            this.btnPolyline.Click += new System.EventHandler(this.btnPolyline_Click);
+            // 
+            // btnLine
+            // 
+            this.btnLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLine.BackgroundImage")));
+            this.btnLine.Location = new System.Drawing.Point(4, 104);
+            this.btnLine.Name = "btnLine";
+            this.btnLine.Size = new System.Drawing.Size(70, 40);
+            this.btnLine.TabIndex = 2;
+            this.btnLine.UseVisualStyleBackColor = true;
+            this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
+            // 
+            // btnCircle
+            // 
+            this.btnCircle.BackgroundImage = global::Paint.Properties.Resources.ellipse;
+            this.btnCircle.Location = new System.Drawing.Point(4, 58);
+            this.btnCircle.Name = "btnCircle";
+            this.btnCircle.Size = new System.Drawing.Size(70, 40);
+            this.btnCircle.TabIndex = 1;
+            this.btnCircle.UseVisualStyleBackColor = true;
+            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
+            // 
+            // btcRect
+            // 
+            this.btcRect.BackgroundImage = global::Paint.Properties.Resources.rectangle;
+            this.btcRect.Location = new System.Drawing.Point(4, 12);
+            this.btcRect.Name = "btcRect";
+            this.btcRect.Size = new System.Drawing.Size(70, 40);
+            this.btcRect.TabIndex = 0;
+            this.btcRect.UseVisualStyleBackColor = true;
+            this.btcRect.Click += new System.EventHandler(this.btcRect_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,7 +559,6 @@ namespace Paint
             this.Name = "Form1";
             this.Text = "Form1";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -568,6 +572,7 @@ namespace Paint
             ((System.ComponentModel.ISupportInitialize)(this.UpDownY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.penWidth)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
