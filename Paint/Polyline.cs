@@ -21,28 +21,7 @@ namespace Paint
                 Point[] pt = this.points.ToArray();
 
                 obj.DrawLines(pen, pt);
-
-                //this.points.RemoveAt(this.points.Count-1);
-            }
-            //SolidBrush Brush = new SolidBrush(this.brushColor);
-
-            //Point point1 = this.leftUp;
-            //Point point2 = this.rightDown;
-
-
-            //Rectangle rect = new Rectangle(point, size);
-
-
-            //obj.Graphics.FillRectangle(Brush, rect);
-
-
-           
-            //if (pen.Width == 0)
-             //   pen.Width = 1;
-            //obj.Graphics.DrawLine(pen, point1, point2);
-            //obj.Graphics.DrawRectangle(pen, rect);
-
-
+            }  
         }
 
         public override void PreDraw(Graphics obj, int Horz, int Vert)

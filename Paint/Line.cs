@@ -12,27 +12,14 @@ namespace Paint
     {
         public override void Draw(Graphics obj)
         {
-
-            //SolidBrush Brush = new SolidBrush(this.brushColor);
-
             Point point1 = this.leftUp;
             Point point2 = this.rightDown;
 
-
-
-            //Rectangle rect = new Rectangle(point, size);
-
-
-            //obj.Graphics.FillRectangle(Brush, rect);
-
-            
 
             Pen pen = new Pen(this.penColor, this.penWidth);
             if (pen.Width == 0)
                 pen.Width = 1;
             obj.DrawLine(pen, point1, point2);
-            //obj.Graphics.DrawRectangle(pen, rect);
-
 
         }
 
@@ -43,12 +30,10 @@ namespace Paint
 
         public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
-
             this.rightDown.X = Horz;
             this.rightDown.Y = Vert;
 
             Draw(obj);
-
         }
     }
 }

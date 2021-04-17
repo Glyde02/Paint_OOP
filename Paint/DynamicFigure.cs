@@ -17,11 +17,8 @@ namespace Paint
         public override int LeftClick(Point point)
         {
             this.points.Add(point);
-            //Draw();
-
             return 1;
         }
-
 
         public override void Init(Point point)
         {
@@ -33,13 +30,6 @@ namespace Paint
             points.Add(point);
             points.Add(point);
 
-            //this.rightDown = point;
-
-            //this.width = Math.Abs(this.leftUp.X - point.X);
-            //this.height = Math.Abs(this.leftUp.Y - point.Y);
-            //this.width = point.X - this.leftUp.X;
-            //this.height = point.Y - this.leftUp.Y;
         }
-
     }
 }

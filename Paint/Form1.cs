@@ -10,7 +10,6 @@ namespace Paint
         public Bitmap bitmap;
         public Graphics pic;
 
-        //private List<Figure> listFigures = new List<Figure>();
         private FigureList figureList = new FigureList();
         private Figure currFigure;
         private Figure lastFigure;
@@ -43,28 +42,12 @@ namespace Paint
 
         private void btcRect_Click(object sender, EventArgs e)
         {
-            //Rect rectangle = new Rect();
-            //SetAttribute(rectangle);
-
-            ////rectangle.DrawRect(pic, 10, 10, 50, 50);            
-            //rectangle.DrawRect(pic, (int)UpDownX.Value, (int)UpDownY.Value, (int)UpDownWidth.Value,(int) UpDownHeight.Value);
-
-            //picBox1.Image = bitmap;
-
             this.currFigure = new Rect();
             this.lastFigure = this.currFigure;
-
         }
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
-            //Circle circle = new Circle();
-            //SetAttribute(circle);
-            ////circle.DrawCircle(pic, 100, 100, 50, 50);
-            //circle.DrawCircle(pic, (int)UpDownX.Value, (int)UpDownY.Value, (int)UpDownWidth.Value, (int)UpDownHeight.Value);
-
-            //picBox1.Image = bitmap;
-
             this.currFigure = new Circle();
             this.lastFigure = this.currFigure;
         }
@@ -93,28 +76,14 @@ namespace Paint
 
         private void picBox1_MouseDown(object sender, MouseEventArgs e)
         {
-
-
-            //btnUndo.Enabled = true;
-
             if (e.Button == MouseButtons.Left)
             {
                 if (currFigure == null)
                     currFigure = lastFigure.Clone();
                 SetAttribute(currFigure);
-
                 Point point = new Point(e.X, e.Y);
-                //this.currFigure.Init(point);
 
                 this.currFigure.LeftClick(point);
-                //if (this.currFigure.LeftClick(point) == 1)
-                //{
-
-                //}
-                //else
-                //{
-
-                //}
 
                 figureList.ClearList();
                 btnRedo.Enabled = false;
@@ -122,20 +91,12 @@ namespace Paint
             }
             else
             {
-                PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
                 this.currFigure.Draw(pic);
-                
-                
-                //
-                this.currFigure.Draw(pic);
-                //
-
 
                 figureList.list.Add(currFigure);
                 btnUndo.Enabled = true;
-                //listFigures.Add(currFigure);
-                currFigure = null;
-               
+
+                currFigure = null;               
                 picBox1.Image = bitmap;
             }
 
@@ -145,42 +106,11 @@ namespace Paint
         {
             if (this.currFigure != null)
             {
-                //this.currFigure.SetSize(e.Location);
                 pic.Clear(Color.White);
-
-
-                DrawAllList();
-                //if (figureList.list != null)
-                //{
-                //    foreach (Figure figure in figureList.list)
-                //    {
-                //        PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-                //        figure.Draw(b);
-                //    }
-                    
-                //}
-
-                PaintEventArgs c = new PaintEventArgs(pic, new Rectangle());
+                DrawAllList();                
                 currFigure.PreDraw(pic, e.X, e.Y);
-                //currFigure.Draw(c);
-
                 picBox1.Image = bitmap;
             }
-            //picBox1_MouseUp(sender, e);
-        }
-
-        private void picBox1_MouseUp(object sender, MouseEventArgs e)
-        {
-            //Рисование при отпускании кнопке
-
-            //if (currFigure != null)
-            //{
-            //    PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
-
-            //    this.currFigure.Draw(b);
-            //    picBox1.Image = bitmap;
-            //}
-
         }
 
         private void btnLine_Click(object sender, EventArgs e)
@@ -209,10 +139,8 @@ namespace Paint
                 {
                     PaintEventArgs b = new PaintEventArgs(pic, new Rectangle());
                     figure.Draw(pic);
-                }
-                
+                }   
             }
-
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -221,11 +149,9 @@ namespace Paint
 
             if (figureList.Undo() == false)
                 btnUndo.Enabled = false;
-
             btnRedo.Enabled = true;
 
             DrawAllList();
-
             picBox1.Image = bitmap;
         }
 
@@ -235,11 +161,9 @@ namespace Paint
 
             if (figureList.Redo() == false)
                 btnRedo.Enabled = false;
-
             btnUndo.Enabled = true;
 
             DrawAllList();
-
             picBox1.Image = bitmap;
         }
     }

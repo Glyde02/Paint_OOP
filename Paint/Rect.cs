@@ -12,9 +12,7 @@ namespace Paint
     {
         public override void Draw(Graphics obj)
         {
-
             SolidBrush Brush = new SolidBrush(this.brushColor);
-
             Point point = this.leftUp;
             Size size = new Size(this.width, this.height);
             
@@ -30,16 +28,11 @@ namespace Paint
             }
 
             Rectangle rect = new Rectangle(point, size);
-
-            //PaintEventArgs obj = new PaintEventArgs(obj1, new Rectangle());
-            
-            //obj.Graphics.FillRectangle(Brush, rect);
             obj.FillRectangle(Brush, rect);
 
             if (this.penWidth != 0)
             {
                 Pen pen = new Pen(this.penColor, this.penWidth);
-                //obj.Graphics.DrawRectangle(pen, rect);
                 obj.DrawRectangle(pen, rect);
             }
 
@@ -52,16 +45,10 @@ namespace Paint
 
         public override void PreDraw(Graphics obj, int Horz, int Vert)
         {
-
             this.width = Horz - this.leftUp.X;
             this.height = Vert - this.leftUp.Y;
 
-
             Draw(obj);
-
         }
-
-
     }
-
 }

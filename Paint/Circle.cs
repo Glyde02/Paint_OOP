@@ -12,7 +12,6 @@ namespace Paint
     {
         public override void Draw(Graphics obj)
         {
-
             SolidBrush brush = new SolidBrush(this.brushColor);
             Rectangle circleRect = new Rectangle(this.leftUp, new Size(this.width, this.height));
 
@@ -23,7 +22,6 @@ namespace Paint
                 Pen pen = new Pen(this.penColor, this.penWidth);
                 obj.DrawEllipse(pen, circleRect);
             }
-
         }
 
 
@@ -38,16 +36,6 @@ namespace Paint
             this.height = Vert - this.leftUp.Y;
 
             Draw(obj);
-            //SolidBrush brush = new SolidBrush(this.brushColor);
-            //Rectangle circleRect = new Rectangle(this.leftUp, new Size(this.width, this.height));
-
-            //obj.Graphics.FillEllipse(brush, circleRect);
-
-            //if (this.penWidth != 0)
-            //{
-            //    Pen pen = new Pen(this.penColor, this.penWidth);
-            //    obj.Graphics.DrawEllipse(pen, circleRect);
-            //}
         }
     }
 }
