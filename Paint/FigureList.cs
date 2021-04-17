@@ -6,17 +6,28 @@ using System.Threading.Tasks;
 
 namespace Paint
 {
-    class FigureList
+    public class FigureList
     {
         public List<Figure> list = new List<Figure>();
         private List<Figure> buffFigures = new List<Figure>();
 
 
-        public void ClearList()
+        public void Clearbuff()
         {
             this.buffFigures.Clear();
         }
-
+        public void MoveToBuff()
+        {
+            list.Reverse();
+            buffFigures.AddRange(list);
+            list.Clear();
+        }
+        public void MoveToList()
+        {
+            buffFigures.Reverse();
+            list.AddRange(buffFigures);
+            buffFigures.Clear();
+        }
 
         public bool Undo()
         {

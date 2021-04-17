@@ -33,5 +33,35 @@ namespace Paint
             this.leftUp = point;
             return 0;
         }
+        
+        public Point GetLeftUp()
+        {
+            return leftUp;
+        }
+        public Point GetRightDown()
+        {
+            return rightDown;
+        }
+        public int GetWidth()
+        {
+            return width;
+        }        
+        public int GetHeight()
+        {
+            return height;
+        }
+        public void SetLeftUp(Point pt)
+        {
+            this.leftUp = pt;
+        }
+        public void SetRightDown(Point pt)
+        {
+            this.rightDown = pt;
+        }
+        public void SetWidthHeight(int width, int height)
+        {
+            this.width = width;
+            this.height = height;
+        }
     }
 }

@@ -17,7 +17,8 @@ namespace Paint
             {
                 Pen pen = new Pen(this.penColor, this.penWidth);
 
-                this.points.Add(lastDot);
+                if (this.points[this.points.Count-1] != lastDot)
+                    this.points.Add(lastDot);
                 Point[] pt = this.points.ToArray();
 
                 obj.DrawLines(pen, pt);
@@ -49,6 +50,11 @@ namespace Paint
         public override Figure Clone()
         {
             return new Polyline { };
+        }
+
+        public override string GetName()
+        {
+            return "Polyline";
         }
     }
 }

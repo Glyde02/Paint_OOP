@@ -37,5 +37,10 @@ namespace Paint
 
             Draw(obj);
         }
+
+        public override string GetName()
+        {
+            return "Circle";
+        }
     }
 }

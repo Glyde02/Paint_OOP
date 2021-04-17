@@ -10,7 +10,6 @@ namespace Paint
     public abstract class DynamicFigure : Figure
     {
         protected List<Point> points = new List<Point>();
-
         protected Point leftUp;
         protected Point lastDot;
 
@@ -29,7 +28,32 @@ namespace Paint
         {
             points.Add(point);
             points.Add(point);
+        }
 
+        public List<Point> GetList()
+        {
+            return points;
+        }
+        public Point GetLeftUp()
+        {
+            return leftUp;
+        }
+        public Point GetLastDot()
+        {
+            return lastDot;
+        }
+
+        public void SetLeftUp(Point pt)
+        {
+            this.leftUp = pt;
+        }
+        public void SetLastDot(Point pt)
+        {
+            this.lastDot = pt;
+        }
+        public void SetPoints(List<Point> points)
+        {
+            this.points = points;
         }
     }
 }

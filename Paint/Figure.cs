@@ -24,6 +24,8 @@ namespace Paint
 
         abstract public int LeftClick(Point point);
 
+        abstract public string GetName();
+
         public void SetPenColor(Color color)
         {               
             this.penColor = color;            
@@ -40,6 +42,20 @@ namespace Paint
         }
 
         abstract public Figure Clone();
+
+        public Color GetPenColor()
+        {
+            return penColor;
+        }
+        public int GetPenWidth()
+        {
+            return penWidth;
+        }
+        public Color GetBrushColor()
+        {
+            return brushColor;
+        }
+
        
     }
 }

@@ -15,7 +15,8 @@ namespace Paint
         {
             if (this.points.Count > 0)
             {
-                this.points.Add(lastDot);
+                if (this.points[this.points.Count-1] != lastDot)
+                    this.points.Add(lastDot);
                 Point[] pt = this.points.ToArray();                
 
                 SolidBrush brush = new SolidBrush(this.brushColor);
@@ -71,6 +72,11 @@ namespace Paint
         public override Figure Clone()
         {
             return new Polygon { };
+        }
+
+        public override string GetName()
+        {
+            return "Polygon";
         }
     }
 }
