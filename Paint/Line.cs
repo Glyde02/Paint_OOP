@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    [Serializable]
     public class Line : SimpleFigure
     {
         public override void Draw(Graphics obj)

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Paint
 {
+    [Serializable]
     public abstract class DynamicFigure : Figure
     {
-        protected List<Point> points = new List<Point>();
-        protected Point leftUp;
-        protected Point lastDot;
+        public List<Point> points = new List<Point>();
+        public Point leftUp;
+        public Point lastDot;
 
         public override int LeftClick(Point point)
         {

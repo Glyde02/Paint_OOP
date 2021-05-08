@@ -5,14 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Paint
 {
+    [Serializable]
     public abstract class Figure
     {
+        [XmlIgnore]
         public Color penColor;
-        protected Color brushColor;
-        protected int penWidth;
+        [XmlIgnore]
+        public Color brushColor;
+
+
+        [XmlElement("penColor")]
+        public int penAsArgb
+        {
+            get { return penColor.ToArgb(); }
+            set { penColor = Color.FromArgb(value); }
+        }
+
+        [XmlElement("brushColor")]
+        public int brushAsArgb
+        {
+            get { return brushColor.ToArgb(); }
+            set { brushColor = Color.FromArgb(value); }
+        }
+
+        public int penWidth;
 
         abstract public void Init(Point point);
 
@@ -27,13 +47,15 @@ namespace Paint
         abstract public string GetName();
 
         public void SetPenColor(Color color)
-        {               
-            this.penColor = color;            
+        {
+            this.penColor = color;
+            //this.penColor = Color.Red;
         }
 
         public void SetBrushColor(Color color)
-        {            
+        {
             this.brushColor = color;
+            //this.brushColor = Color.Black;
         }
 
         public void SetPenWidth(int width)

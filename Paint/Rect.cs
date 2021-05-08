@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.Drawing;
 
 namespace Paint
 {
+    [Serializable]
     public class Rect : SimpleFigure
     {
+
         public override void Draw(Graphics obj)
         {
             SolidBrush Brush = new SolidBrush(this.brushColor);

@@ -9,12 +9,13 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    [Serializable]
     public abstract class SimpleFigure : Figure
     {
-        protected Point leftUp;
-        protected Point rightDown;
-        protected int width;
-        protected int height;
+        public Point leftUp;
+        public Point rightDown;
+        public int width;
+        public int height;
 
         public override void Init(Point point)
         {

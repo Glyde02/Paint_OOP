@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace Paint
 {
+    [Serializable]
     public class Polygon : DynamicFigure
     {
 

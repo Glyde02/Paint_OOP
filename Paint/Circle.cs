@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    [Serializable]
     public class Circle : SimpleFigure
     {
         public override void Draw(Graphics obj)

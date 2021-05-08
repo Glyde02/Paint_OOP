@@ -63,8 +63,10 @@ namespace Paint
 
         private void SetAttribute(Figure figure)
         {
-            figure.SetPenColor(clrDlgPen.Color);
-            figure.SetBrushColor(clrDlgBrush.Color);
+            //figure.SetPenColor(clrDlgPen.Color);
+            figure.SetPenColor(Color.FromArgb(clrDlgPen.Color.A, clrDlgPen.Color.R, clrDlgPen.Color.G, clrDlgPen.Color.B));
+            //figure.SetBrushColor(clrDlgBrush.Color);
+            figure.SetBrushColor(Color.FromArgb(clrDlgBrush.Color.A, clrDlgBrush.Color.R, clrDlgBrush.Color.G, clrDlgBrush.Color.B));
             figure.SetPenWidth((int)penWidth.Value);
         }
 
@@ -225,19 +227,9 @@ namespace Paint
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
-            {
-                Serializing serializing = new Serializing();
-                serializing.Save(figureList.list);
-
-                System.Xml.Serialization.XmlSerializer writer =
-                new System.Xml.Serialization.XmlSerializer(typeof(Serializing));
-
-
+            {   
                 var path = saveFileDialog1.FileName;
-                System.IO.FileStream file = System.IO.File.Create(path);
-
-                writer.Serialize(file, serializing);
-                file.Close();
+                figureList.Serialize(path);
             }            
 
         }
@@ -252,13 +244,11 @@ namespace Paint
                 figureList.Clearbuff();
 
                 btnUndo.Enabled = true;
+                btnRedo.Enabled = false;
 
-                System.Xml.Serialization.XmlSerializer reader =
-                    new System.Xml.Serialization.XmlSerializer(typeof(Serializing));
-                System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog1.FileName);
-                Serializing serializing = (Serializing)reader.Deserialize(file);
-                serializing.Load(figureList.list);
-                file.Close();
+                var path = openFileDialog1.FileName;
+                figureList.Deserialize(path);
+
 
                 pic.Clear(Color.White);
                 DrawAllList();

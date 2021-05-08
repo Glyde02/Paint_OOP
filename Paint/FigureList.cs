@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Paint
 {
+    [Serializable]
     public class FigureList
     {
         public List<Figure> list = new List<Figure>();
+        
+        [NonSerialized]
         private List<Figure> buffFigures = new List<Figure>();
+
+        [NonSerialized]
+        private Type[] allTypesOfFigures = new Type[] { typeof(Rect), typeof(Circle), typeof(Line), typeof(Polygon), typeof(Polyline) };
 
 
         public void Clearbuff()
@@ -63,6 +71,29 @@ namespace Paint
             {
                 return true;
             }    
+        }
+
+        public void Serialize(string path)
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(FigureList), allTypesOfFigures);
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                xml.Serialize(fs, this);
+            }
+        }
+
+        public void Deserialize(string path)
+        {
+            FigureList res;            
+
+
+            XmlSerializer xml = new XmlSerializer(typeof(FigureList), allTypesOfFigures);
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                res = (FigureList)xml.Deserialize(fs);
+            }
+            list = res.list;
+
         }
 
 
