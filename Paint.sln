@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paint", "Paint\Paint.csproj", "{1DE3806C-8DA1-4A31-9919-707BCCB835A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trapeze", "Trapeze\Trapeze.csproj", "{F68C33A4-8E37-4949-936A-8C841C902DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triagle", "Triagle\Triagle.csproj", "{5D029E6B-C499-40FB-8B74-8A771A7655E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1DE3806C-8DA1-4A31-9919-707BCCB835A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DE3806C-8DA1-4A31-9919-707BCCB835A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DE3806C-8DA1-4A31-9919-707BCCB835A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68C33A4-8E37-4949-936A-8C841C902DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68C33A4-8E37-4949-936A-8C841C902DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68C33A4-8E37-4949-936A-8C841C902DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68C33A4-8E37-4949-936A-8C841C902DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D029E6B-C499-40FB-8B74-8A771A7655E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D029E6B-C499-40FB-8B74-8A771A7655E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D029E6B-C499-40FB-8B74-8A771A7655E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D029E6B-C499-40FB-8B74-8A771A7655E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,28 +1,26 @@
-﻿using System;
+﻿using Paint;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Serialization;
 using System.Drawing;
 
-namespace Paint
-{
-    [Serializable]
-    public class Rect : SimpleFigure
-    {
 
+namespace Triagle
+{
+    public class Triagle : SimpleFigure
+    {
         public override void Draw(Graphics obj)
         {
             SolidBrush brush = new SolidBrush(this.brushColor);
             Point point = this.leftUp;
             Size size = new Size(this.width, this.height);
-            
+
             if (this.width < 0)
             {
                 point.X += size.Width;
-                size.Width = Math.Abs(size.Width);                
+                size.Width = Math.Abs(size.Width);
             }
             if (this.height < 0)
             {
@@ -30,20 +28,23 @@ namespace Paint
                 size.Height = Math.Abs(size.Height);
             }
 
-            Rectangle rect = new Rectangle(point, size);
-            obj.FillRectangle(brush, rect);
+            Point[] pointArr = {new Point(point.X+size.Width/2, point.Y),
+                                new Point(point.X+size.Width, point.Y+size.Height),
+                                new Point(point.X, point.Y+size.Height)};
+
+            obj.FillPolygon(brush, pointArr);
 
             if (this.penWidth != 0)
             {
                 Pen pen = new Pen(this.penColor, this.penWidth);
-                obj.DrawRectangle(pen, rect);
+                obj.DrawPolygon(pen, pointArr);
             }
 
         }
 
         public override Figure Clone()
         {
-            return new Rect { };
+            return new Triagle { };
         }
 
         public override void PreDraw(Graphics obj, int Horz, int Vert)
@@ -56,7 +57,7 @@ namespace Paint
 
         public override string GetName()
         {
-            return "Rect";
+            return "Triagle";
         }
     }
 }

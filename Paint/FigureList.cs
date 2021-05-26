@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Paint
@@ -15,9 +16,6 @@ namespace Paint
         
         [NonSerialized]
         private List<Figure> buffFigures = new List<Figure>();
-
-        [NonSerialized]
-        private Type[] allTypesOfFigures = new Type[] { typeof(Rect), typeof(Circle), typeof(Line), typeof(Polygon), typeof(Polyline) };
 
 
         public void Clearbuff()
@@ -36,6 +34,7 @@ namespace Paint
             list.AddRange(buffFigures);
             buffFigures.Clear();
         }
+
 
         public bool Undo()
         {
@@ -73,7 +72,7 @@ namespace Paint
             }    
         }
 
-        public void Serialize(string path)
+        public void Serialize(string path, Type[] allTypesOfFigures)
         {
             XmlSerializer xml = new XmlSerializer(typeof(FigureList), allTypesOfFigures);
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
@@ -82,17 +81,23 @@ namespace Paint
             }
         }
 
-        public void Deserialize(string path)
+        public void Deserialize(string path, Type[] allTypesOfFigures)
         {
-            FigureList res;            
+            FigureList res;
 
-
-            XmlSerializer xml = new XmlSerializer(typeof(FigureList), allTypesOfFigures);
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                res = (FigureList)xml.Deserialize(fs);
+                XmlSerializer xml = new XmlSerializer(typeof(FigureList), allTypesOfFigures);
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    res = (FigureList)xml.Deserialize(fs);
+                }
+                list = res.list;
             }
-            list = res.list;
+            catch
+            {
+                MessageBox.Show("Вы не подключили все используемые классы!!!");
+            }
 
         }
 

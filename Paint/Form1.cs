@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
+using System.Reflection;
 
 namespace Paint
 {
@@ -15,13 +16,22 @@ namespace Paint
         public Graphics pic;
 
         private FigureList figureList = new FigureList();
+        public List<Type> allTypesOfFigures = new List<Type>();
         private Figure currFigure;
         private Figure lastFigure;
+
+        private int NumOfPlugins = 0;
 
 
         public Form1()
         {
             InitializeComponent();
+
+            allTypesOfFigures.Add(typeof(Rect));
+            allTypesOfFigures.Add(typeof(Line));
+            allTypesOfFigures.Add(typeof(Circle));
+            allTypesOfFigures.Add(typeof(Polyline));
+            allTypesOfFigures.Add(typeof(Polygon));
 
             lastFigure = new Rect();
 
@@ -229,7 +239,7 @@ namespace Paint
             if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
             {   
                 var path = saveFileDialog1.FileName;
-                figureList.Serialize(path);
+                figureList.Serialize(path, allTypesOfFigures.ToArray());
             }            
 
         }
@@ -247,7 +257,7 @@ namespace Paint
                 btnRedo.Enabled = false;
 
                 var path = openFileDialog1.FileName;
-                figureList.Deserialize(path);
+                figureList.Deserialize(path, allTypesOfFigures.ToArray());
 
 
                 pic.Clear(Color.White);
@@ -269,6 +279,73 @@ namespace Paint
             pic.Clear(Color.White);
             picBox1.Image = bitmap;
             
+        }
+
+        private void addFigureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            string path = "";
+
+
+            if (openFileDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                path = openFileDialog.FileName;
+            }
+            else 
+            {
+                return; 
+            }
+
+
+            Assembly assembly = Assembly.LoadFrom(path);            
+            Type[] pluginType = assembly.GetTypes();
+
+
+            int imgIndex = 0;
+            foreach (Type plugType in pluginType)
+            {
+                allTypesOfFigures.Add(plugType);
+
+                Button btn = new Button();
+                btn.Name = "btn" + plugType.ToString();
+                //btn.Text = "Trapeze";
+                btn.Parent = panel1;
+                btn.Size = new Size(70, 40);
+                btn.Location = new Point(4, 300 + (40+6)*NumOfPlugins);
+
+                
+                string[] arrNames = assembly.GetManifestResourceNames();
+                //int index = 0;
+                //foreach(string name in arrNames)
+                //{
+                //    if (name.Contains(".png"))
+                //    {
+                //        break;
+                //    }
+                //    else
+                //    {
+                //        index++;
+                //    }
+                //}
+                Image img;
+                img = Image.FromStream(assembly.GetManifestResourceStream(arrNames[imgIndex]));
+                btn.Image = img;
+                imgIndex++;
+
+                
+                
+
+                btn.Click += delegate(object sender_, EventArgs e_)
+                {
+                    this.currFigure = (Figure)Activator.CreateInstance(plugType);
+                    this.lastFigure = this.currFigure;
+                };
+
+                this.panel1.Controls.Add(btn);
+                this.NumOfPlugins++;
+            }
+
+
         }
     }
 }

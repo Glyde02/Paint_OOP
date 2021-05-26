@@ -117,32 +117,32 @@ namespace Paint
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // savePictureToolStripMenuItem
             // 
             this.savePictureToolStripMenuItem.Name = "savePictureToolStripMenuItem";
-            this.savePictureToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.savePictureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.savePictureToolStripMenuItem.Text = "Save picture...";
             // 
             // nToolStripMenuItem
             // 
             this.nToolStripMenuItem.Name = "nToolStripMenuItem";
-            this.nToolStripMenuItem.Size = new System.Drawing.Size(144, 6);
+            this.nToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -159,7 +159,7 @@ namespace Paint
             // 
             this.undoToolStripMenuItem.Enabled = false;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -167,7 +167,7 @@ namespace Paint
             // 
             this.redoToolStripMenuItem.Enabled = false;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
@@ -184,18 +184,19 @@ namespace Paint
             // addFigureToolStripMenuItem
             // 
             this.addFigureToolStripMenuItem.Name = "addFigureToolStripMenuItem";
-            this.addFigureToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.addFigureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFigureToolStripMenuItem.Text = "Add figure";
+            this.addFigureToolStripMenuItem.Click += new System.EventHandler(this.addFigureToolStripMenuItem_Click);
             // 
             // aboutProgramToolStripMenuItem
             // 
             this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
-            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(153, 6);
+            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutProgramToolStripMenuItem1
             // 
             this.aboutProgramToolStripMenuItem1.Name = "aboutProgramToolStripMenuItem1";
-            this.aboutProgramToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.aboutProgramToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aboutProgramToolStripMenuItem1.Text = "About program";
             // 
             // panel1
